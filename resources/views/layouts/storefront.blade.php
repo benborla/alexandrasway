@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Demo Storefront</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <meta name="description" content="Example of an ecommerce storefront built with Lunar.">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -13,12 +14,33 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
         rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        scarlet: {
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                },
+            },
+        }
+    </script>
 </head>
 
-<body class="antialiased text-gray-900 font-sans">
+<body class="bg-black text-white font-sans flex flex-col min-h-screen">
     @livewire('components.navigation')
 
-    <main>
+    <main class="flex-grow">
         {{ $slot }}
     </main>
 

@@ -1,0 +1,10 @@
+/** Run this after changing: php artisan filament:assets **/
+
+.fi-sidebar-header {
+    justify-content: center;
+    color: #ef4444;
+}
+
+.fi-logo {
+    color: #ef4444;
+}

@@ -8,6 +8,8 @@ use Illuminate\Support\ServiceProvider;
 use Lunar\Admin\Support\Facades\LunarPanel;
 use Lunar\Base\ShippingModifiers;
 use Lunar\Shipping\ShippingPlugin;
+use Filament\Support\Assets\Css;
+use Filament\Support\Assets\Js;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,10 +20,15 @@ class AppServiceProvider extends ServiceProvider
     {
         LunarPanel::panel(
             function ($panel) {
-                $panel->brandLogo(fn () => view('components.brand.logo'));
-                $panel->darkModeBrandLogo(fn () => view('components.brand.logo'));
+                $panel->assets([
+                    Css::make('admin-stylesheet', resource_path('css/admin.css')),
+                    Js::make('admin-script', resource_path('js/admin.js')),
+                ]);
+                $panel->brandLogo(fn() => view('components.brand.logo'));
+                $panel->darkModeBrandLogo(fn() => view('components.brand.logo'));
                 $panel->path('admin');
                 $panel->brandName('Alexandra\'s Way');
+                $panel->favicon(public_path('favicon.svg'));
                 $panel->colors([
                     'primary' => Color::hex('#ef4444'),
                 ]);

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Modifiers\ShippingModifier;
+use Filament\Support\Colors\Color;
 use Illuminate\Support\ServiceProvider;
 use Lunar\Admin\Support\Facades\LunarPanel;
 use Lunar\Base\ShippingModifiers;
@@ -17,7 +18,13 @@ class AppServiceProvider extends ServiceProvider
     {
         LunarPanel::panel(
             function ($panel) {
+                $panel->brandLogo(fn () => view('components.brand.logo'));
+                $panel->darkModeBrandLogo(fn () => view('components.brand.logo'));
                 $panel->path('admin');
+                $panel->brandName('Alexandra\'s Way');
+                $panel->colors([
+                    'primary' => Color::hex('#ef4444'),
+                ]);
 
                 return $panel->plugins([
                     new ShippingPlugin,

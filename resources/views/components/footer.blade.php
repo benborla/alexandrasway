@@ -49,11 +49,6 @@
                 <ul class="space-y-2">
                     <li><a href="#" class="text-zinc-400 hover:text-scarlet-400 transition-colors">Our Story</a>
                     </li>
-                    <li><a href="#" class="text-zinc-400 hover:text-scarlet-400 transition-colors">Careers</a>
-                    </li>
-                    <li><a href="#" class="text-zinc-400 hover:text-scarlet-400 transition-colors">Press</a></li>
-                    <li><a href="#"
-                            class="text-zinc-400 hover:text-scarlet-400 transition-colors">Sustainability</a></li>
                 </ul>
             </div>
 
@@ -92,8 +87,9 @@
             <div class="flex items-center gap-6">
                 <a href="#" class="text-zinc-400 hover:text-scarlet-400 text-sm transition-colors">Privacy
                     Policy</a>
-                <a href="#" class="text-zinc-400 hover:text-scarlet-400 text-sm transition-colors">Terms of
-                    Service</a>
+                <a href="#" class="text-zinc-400 hover:text-scarlet-400 text-sm transition-colors">Terms &amp;
+                    Conditions
+                </a>
                 <a href="#" class="text-zinc-400 hover:text-scarlet-400 text-sm transition-colors">Cookie
                     Policy</a>
             </div>

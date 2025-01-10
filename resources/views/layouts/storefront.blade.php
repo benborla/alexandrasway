@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Demo Storefront</title>
+    <title>Alexandra's Way</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <meta name="description" content="Example of an ecommerce storefront built with Lunar.">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -37,7 +37,7 @@
     </script>
 </head>
 
-<body class="bg-black text-white font-sans flex flex-col min-h-screen">
+<body class="antialiased bg-black text-white font-sans flex flex-col min-h-screen">
     @livewire('components.navigation')
 
     <main class="flex-grow">

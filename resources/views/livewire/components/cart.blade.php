@@ -13,7 +13,7 @@
         </span>
     </button>
 
-    <div class="absolute inset-x-0 top-auto z-50 w-screen max-w-sm px-6 py-8 mx-auto mt-4 bg-white border border-gray-100 shadow-xl sm:left-auto rounded-xl"
+    <div class="absolute inset-x-0 top-auto z-50 w-screen max-w-sm px-6 py-8 mx-auto mt-4 bg-black border border-gray-600 shadow-xl sm:left-auto rounded-xl"
         x-show="linesVisible" x-on:click.away="linesVisible = false" x-transition x-cloak>
         <button class="absolute text-gray-500 transition-transform top-3 right-3 hover:scale-110" type="button"
             aria-label="Close" x-on:click="linesVisible = false">
@@ -45,10 +45,18 @@
                                             </span>
 
                                             <div class="flex items-center mt-2">
-                                                <input
-                                                    class="w-16 p-2 text-xs transition-colors border border-gray-100 rounded-lg hover:border-gray-200"
-                                                    type="number"
-                                                    wire:model.live="lines.{{ $index }}.quantity" />
+
+                                                <div class="flex items-center border border-zinc-700 rounded">
+                                                    <button
+                                                        class="px-4 py-2 text-zinc-400 hover:text-white transition-colors"
+                                                        wire:click.prevent="decrementQuantity({{ $line['id'] }})">-</button>
+                                                    <input type="number" min="1"
+                                                        wire:model.live="lines.{{ $index }}.quantity"
+                                                        class="w-16 bg-transparent border-x border-zinc-700 px-4 py-2 text-center text-white [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
+                                                    <button
+                                                        class="px-4 py-2 text-zinc-400 hover:text-white transition-colors"
+                                                        wire:click.prevent="incrementQuantity({{ $line['id'] }})">+</button>
+                                                </div>
 
                                                 <p class="ml-2 text-xs">
                                                     @ {{ $line['unit_price'] }}
@@ -96,7 +104,7 @@
                     </dd>
                 </dl>
             @else
-                <p class="py-4 text-sm font-medium text-center text-gray-500">
+                <p class="py-4 text-sm font-medium text-center text-gray-600">
                     Your cart is empty
                 </p>
             @endif
@@ -105,17 +113,17 @@
         @if ($this->cart)
             <div class="mt-4 space-y-4 text-center">
                 <button
-                    class="block w-full p-3 text-sm font-medium text-blue-800 border border-blue-600 rounded-lg hover:ring-1 hover:ring-blue-600"
+                    class="block w-full p-3 text-sm font-medium text-scarlet-800 border border-scarlet-600 rounded-lg hover:ring-1 hover:ring-scarlet-600"
                     type="button" wire:click="updateLines">
                     Update Cart
                 </button>
 
-                <a class="block w-full p-3 text-sm font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-500"
+                <a class="block w-full p-3 text-sm font-medium text-center text-white bg-scarlet-600 rounded-lg hover:bg-scarlet-500"
                     href="{{ route('checkout.view') }}" wire:navigate>
                     Checkout
                 </a>
 
-                <a class="inline-block text-sm font-medium text-gray-600 underline hover:text-gray-500"
+                <a class="inline-block text-sm font-medium text-gray-300 underline hover:text-gray-500"
                     href="{{ url('/') }}">
                     Continue Shopping
                 </a>

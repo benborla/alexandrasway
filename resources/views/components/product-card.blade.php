@@ -1,26 +1,15 @@
 @props(['product'])
 
-<a class="block group"
-   href="{{ route('product.view', $product->defaultUrl->slug) }}"
-   wire:navigate
->
-    <div class="overflow-hidden rounded-lg aspect-w-1 aspect-h-1">
+<a href="{{ route('product.view', $product->defaultUrl->slug) }}" wire:navigate
+    class="block group cursor-pointer bg-black border border-zinc-800 rounded-lg overflow-hidden hover:border-scarlet-500/50 transition-colors duration-300">
+    <div class="aspect-h-1 overflow-hidden bg-zinc-800">
         @if ($product->thumbnail)
-            <img class="object-cover transition-transform duration-300 group-hover:scale-105"
-                 src="{{ $product->thumbnail->getUrl('medium') }}"
-                 alt="{{ $product->translateAttribute('name') }}" />
+            <img class="object-fit transition-transform duration-300 group-hover:scale-105"
+                src="{{ $product->thumbnail->getUrl('medium') }}" alt="{{ $product->translateAttribute('name') }}" />
         @endif
     </div>
-
-    <strong class="mt-2 text-sm font-medium">
-        {{ $product->translateAttribute('name') }}
-    </strong>
-
-    <p class="mt-1 text-sm text-gray-600">
-        <span class="sr-only">
-            Price
-        </span>
-
-        <x-product-price :product="$product" />
-    </p>
+    <div class="p-4 space-y-2">
+        <h3 class="text-white group-hover:text-scarlet-400 transition-colors">NICCE Mens Original Hood</h3>
+        <p class="text-zinc-400">$50.00</p>
+    </div>
 </a>

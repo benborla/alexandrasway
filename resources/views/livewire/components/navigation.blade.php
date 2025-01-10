@@ -66,9 +66,9 @@
     class="sticky top-0 z-50 w-full border-b border-zinc-800 bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/60">
     <div class="container mx-auto px-4">
         <div class="flex items-center justify-between h-16">
-            <a href="/" class="text-scarlet-500 text-2xl font-serif italic">Lunar</a>
+            <x-brand.logo class="w-auto h-6 text-scarlet-600" />
 
-            <nav class="hidden md:flex space-x-6">
+            <nav class="hidden md:flex space-x-12">
                 @foreach ($this->collections as $collection)
                     <a href="{{ route('collection.view', $collection->defaultUrl->slug) }}"
                         class="text-zinc-400 hover:text-scarlet-400 transition-colors" wire:navigate>
@@ -77,7 +77,7 @@
                 @endforeach
             </nav>
 
-            <div class="flex items-center space-x-4 flex-grow-1">
+            <div class="flex items-center flex-grow-1">
                 <x-header.search class="w-64" />
                 @livewire('components.cart')
 

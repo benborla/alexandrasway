@@ -1,7 +1,7 @@
 <section>
     <div class="p-8 overflow-hidden border-4 border-gray-900 rounded-lg">
         <div class="sm:py-32 sm:relative">
-            <div>
+            <div class="flex flex-col items-start justify-start space-y-4">
                 <h2 class="text-3xl font-extrabold sm:text-5xl">
                     {{ $this->saleCollection->translateAttribute('name') }}
                 </h2>
@@ -13,10 +13,9 @@
                 @endif
 
                 <a href="{{ route('collection.view', $this->saleCollection->defaultUrl->slug) }}"
-                   class="inline-block px-5 py-3 mt-6 text-sm font-medium text-white bg-black rounded-lg hover:ring-1 hover:ring-black"
-                   wire:navigate
-                >
-                    Shop the Sale
+                    class="self-start px-6 py-2.5 bg-scarlet-600 hover:bg-scarlet-700 text-white rounded-full transition-colors duration-300"
+                    wire:navigate>
+                    Shop the Collection
                 </a>
             </div>
 
@@ -26,8 +25,7 @@
                         <div class="gap-8 first:flex last:sm:flex last:hidden">
                             @foreach ($imageGroup as $image)
                                 <img class="object-cover w-48 h-48 rounded-lg lg:h-72 lg:w-72 odd:mt-8"
-                                     src="{{ $image->getUrl('medium') }}"
-                                     loading="lazy" />
+                                    src="{{ $image->getUrl('medium') }}" loading="lazy" />
                             @endforeach
                         </div>
                     @endforeach

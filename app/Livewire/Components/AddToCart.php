@@ -40,6 +40,18 @@ class AddToCart extends Component
         $this->dispatch('add-to-cart');
     }
 
+    public function incrementQuantity(): void
+    {
+        $this->quantity++;
+    }
+
+    public function decrementQuantity(): void
+    {
+        if ($this->quantity > 1) {
+            $this->quantity--;
+        }
+    }
+
     public function render(): View
     {
         return view('livewire.components.add-to-cart');

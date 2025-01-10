@@ -91,10 +91,34 @@ class Cart extends Component
         })->toArray();
     }
 
+    public function updateQuantity(string $lineId, int $change): void
+    {
+        $index = collect($this->lines)->search(fn ($line) => (string) $line['id'] === $lineId);
+
+        if ($index !== false) {
+            $newQuantity = $this->lines[$index]['quantity'] + $change;
+
+            if ($newQuantity >= 1) {
+                $this->lines[$index]['quantity'] = $newQuantity;
+                $this->updateLines();
+            }
+        }
+    }
+
     public function handleAddToCart(): void
     {
         $this->mapLines();
         $this->linesVisible = true;
+    }
+
+    public function incrementQuantity(int $lineId): void
+    {
+        $this->updateQuantity($lineId, 1);
+    }
+
+    public function decrementQuantity(int $lineId): void
+    {
+        $this->updateQuantity($lineId, -1);
     }
 
     public function render(): View

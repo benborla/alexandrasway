@@ -1,25 +1,21 @@
-module.exports = {
+import defaultTheme from 'tailwindcss/defaultTheme';
+import forms from '@tailwindcss/forms';
+
+/** @type {import('tailwindcss').Config} */
+export default {
     content: [
-        './resources/**/*.blade.php',
-        './resources/**/*.js',
-        './vendor/lunarphp/stripe-payments/resources/views/**/*.blade.php',
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
     ],
-    darkMode: 'class',
+
     theme: {
         extend: {
-            colors: {
-                scarlet: {
-                    400: '#f87171',
-                    500: '#ef4444',
-                    600: '#dc2626',
-                    700: '#b91c1c',
-                },
-            },
             fontFamily: {
-                sans: ['Inter', 'sans-serif'],
-                serif: ['"Playfair Display"', 'serif'],
+                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
         },
     },
-    plugins: [require('@tailwindcss/forms')],
+
+    plugins: [forms],
 };

@@ -15,4 +15,3 @@ Customer:
 - Updates:
     - Installed Laravel Breeze 
     - [Fixed] Issue: Laravel / endpoint is taking over instead of the home page
-

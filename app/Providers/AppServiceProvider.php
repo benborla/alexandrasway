@@ -10,6 +10,7 @@ use Lunar\Base\ShippingModifiers;
 use Lunar\Shipping\ShippingPlugin;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
+use LaraZeus\Wind\WindPlugin;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,6 +34,24 @@ class AppServiceProvider extends ServiceProvider
                     'primary' => Color::hex('#ef4444'),
                 ]);
 
+
+                // Contact Us plugin
+                $panel->plugins([
+                    WindPlugin::make()
+                        ->windPrefix('contact-us')
+                        ->windMiddleware(['web'])
+                        ->defaultDepartmentId(1)
+                        ->defaultStatus('NEW')
+                        ->departmentResource()
+                        ->windModels([
+                            'Department' => \LaraZeus\Wind\Models\Department::class,
+                            'Letter' => \LaraZeus\Wind\Models\Letter::class,
+                        ])
+                        ->uploadDisk('public')
+                        ->uploadDirectory('logos')
+                        ->navigationGroupLabel('Wind'),
+                ]);
+
                 return $panel->plugins([
                     new ShippingPlugin,
                 ]);
@@ -49,6 +68,7 @@ class AppServiceProvider extends ServiceProvider
         $shippingModifiers->add(
             ShippingModifier::class
         );
+
 
         \Lunar\Facades\ModelManifest::replace(
             \Lunar\Models\Contracts\Product::class,

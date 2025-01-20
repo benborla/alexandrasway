@@ -22,4 +22,8 @@
             </section>
         @endif
     </div>
+
+    <div>
+        <livewire:zeus-contact-form />
+    </div>
 </div>

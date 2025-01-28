@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
 
 
                 // Contact Us plugin
-                $panel->plugins([
+                $panel->plugin(
                     WindPlugin::make()
                         ->windPrefix('contact-us')
                         ->windMiddleware(['web'])
@@ -49,8 +49,8 @@ class AppServiceProvider extends ServiceProvider
                         ])
                         ->uploadDisk('public')
                         ->uploadDirectory('logos')
-                        ->navigationGroupLabel('Wind'),
-                ]);
+                        ->navigationGroupLabel('Contact Us Page'),
+                );
 
                 return $panel->plugins([
                     new ShippingPlugin,

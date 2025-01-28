@@ -13,7 +13,10 @@ return [
     |
     */
 
-    'class_namespace' => 'App\\Livewire',
+    'class_namespaces' => [
+        'App\\Http\\Livewire',
+        'Vendor\\Zeus\\Wind',
+    ],
 
     /*
     |---------------------------------------------------------------------------
@@ -69,9 +72,22 @@ return [
         'directory' => null,   // Example: 'tmp'                      | Default: 'livewire-tmp'
         'middleware' => null,  // Example: 'throttle:5,1'             | Default: 'throttle:60,1'
         'preview_mimes' => [   // Supported file types for temporary pre-signed file URLs...
-            'png', 'gif', 'bmp', 'svg', 'wav', 'mp4',
-            'mov', 'avi', 'wmv', 'mp3', 'm4a',
-            'jpg', 'jpeg', 'mpga', 'webp', 'wma',
+            'png',
+            'gif',
+            'bmp',
+            'svg',
+            'wav',
+            'mp4',
+            'mov',
+            'avi',
+            'wmv',
+            'mp3',
+            'm4a',
+            'jpg',
+            'jpeg',
+            'mpga',
+            'webp',
+            'wma',
         ],
         'max_upload_time' => 5, // Max duration (in minutes) before an upload is invalidated...
     ],
